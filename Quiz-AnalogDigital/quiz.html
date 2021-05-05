@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>아날로그 디지털 활동프로그램</title>
+        <style>
+            table{
+                text-align: center;
+                font-size: 30px;
+                background-color: paleturquoise;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <br>
+            <br>
+        <h2>예성여자중학교 2학년 정보 - 아날로그와 디지털</h2>
+        <hr>
+        <br>
+        <h1>이진수 이해하기</h1>
+        <br>
+        <h3>전구가 켜짐과 꺼짐은 다음을 의미한다. <br>켜짐 : 1 꺼짐 : 0 </h3>
+        </ul>
+        <table>
+            <tr>
+                <td>2<sup>3</sup></td>
+                <td>2<sup>2</sup></td>
+                <td>2<sup>1</sup></td>
+                <td>2<sup>0</sup></td>
+            </tr>
+            <tr>
+                <td><img src="off.png" id="light1_img" width="100px" height="100px"></td>
+                <td><img src="off.png" id="light2_img" width="100px" height="100px"></td>
+                <td><img src="off.png" id="light3_img" width="100px" height="100px"></td>
+                <td><img src="off.png" id="light4_img" width="100px" height="100px"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" id="light1_btn" value="켜기" onclick="light1_on_off()">
+                </td>
+                <td>
+                    <input type="button" id="light2_btn" value="켜기" onclick="light2_on_off()">
+                </td>
+                <td>
+                    <input type="button" id="light3_btn" value="켜기" onclick="light3_on_off()">
+                </td>
+                <td>
+                    <input type="button" id="light4_btn" value="켜기" onclick="light4_on_off()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <br>
+                <input type="button" id="calc" value="계산하기" height="100px" width="100px" onclick="calculate()">
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td><br><p>십진수 : </p></td>
+                <td colspan="3">
+                    <br>
+                    <p id="result">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td>이진수 : </td>
+                <td colspan="3">
+                    <p id="binary">0000<sub>(2)</sub></p>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <br>
+        <ul>
+            <h1>비트와 표현 가능한 수의 연관</h1>
+            <h3>비트 수 : 4</h3>
+            <h3>표현 가능한 자료 수 : 2<sup>비트 수</sup> = 2<sup>4</sup> = 16</h3>
+            <h3>표현 가능한 숫자 : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</h3>
+        </ul>
+        <br>
+        <hr>
+        <ul>
+        <h1>이진수 게임!</h1>
+        </ul>
+        <iframe src="https://learningcontent.cisco.com/games/binary/index.html" width="100%" height="100%"></iframe>
+
+
+
+    </body>
+    <script>
+        function light1_on_off(){
+            if(document.getElementById("light1_btn").value == "켜기"){
+                document.getElementById("light1_img").src = "on.png";
+                document.getElementById("light1_btn").value = "끄기";
+            }
+            else{
+                document.getElementById("light1_img").src = "off.png";
+                document.getElementById("light1_btn").value = "켜기";
+            }
+        }
+        function light2_on_off(){
+            if(document.getElementById("light2_btn").value == "켜기"){
+                document.getElementById("light2_img").src = "on.png";
+                document.getElementById("light2_btn").value = "끄기";
+            }
+            else{
+                document.getElementById("light2_img").src = "off.png";
+                document.getElementById("light2_btn").value = "켜기";
+            }
+        }
+        function light3_on_off(){
+            if(document.getElementById("light3_btn").value == "켜기"){
+                document.getElementById("light3_img").src = "on.png";
+                document.getElementById("light3_btn").value = "끄기";
+            }
+            else{
+                document.getElementById("light3_img").src = "off.png";
+                document.getElementById("light3_btn").value = "켜기";
+            }
+        }
+        function light4_on_off(){
+            if(document.getElementById("light4_btn").value == "켜기"){
+                document.getElementById("light4_img").src = "on.png";
+                document.getElementById("light4_btn").value = "끄기";
+            }
+            else{
+                document.getElementById("light4_img").src = "off.png";
+                document.getElementById("light4_btn").value = "켜기";
+            }
+        }
+
+        function calculate(){
+            
+            var number = [];
+            var add_num = [];
+            var set_binary = [];
+
+            number[0] = document.getElementById("light1_btn").value;
+            number[1] = document.getElementById("light2_btn").value;
+            number[2] = document.getElementById("light3_btn").value;
+            number[3] = document.getElementById("light4_btn").value;
+            
+            add_num[0] = 8;
+            add_num[1] = 4;
+            add_num[2] = 2;
+            add_num[3] = 1;
+        
+            set_binary[0] = 0;
+            set_binary[1] = 0;
+            set_binary[2] = 0;
+            set_binary[3] = 0;
+
+            var sum = 0;
+
+            for(i = 0; i<4; i++)
+            {
+                if(number[i] == '끄기')
+                {
+                    sum += add_num[i];
+                    set_binary[i] = 1;
+                }
+            }
+            
+            var string_sum = String(sum);
+            var string_binary = String(set_binary[0])+String(set_binary[1])+String(set_binary[2])+String(set_binary[3]);
+            document.getElementById("result").innerHTML = string_sum;
+            document.getElementById("binary").innerHTML = string_binary +"<sub>(2)</sub>";
+        }
+
+    </script>
+</html>
