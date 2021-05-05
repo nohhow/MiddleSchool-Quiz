@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>퀴즈</title>
+        <style>
+            div{
+                color: red;
+            }
+            h2{
+                color: royalblue;
+            }
+            input{
+                font-size: 25px;
+            }
+            body{
+                padding-left: 30px;
+                padding-top: 30px;
+            }
+            table{
+                line-height: 1.7em;
+            }
+        </style>
+    </head>
+    <body>
+        <h4>충주예성여자중학교 정보</h1>
+        <h1>(3) 사이버 윤리 학습 정리</h1>
+        <hr>
+        <table>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <center>
+                    <h2>나는 누구일까요?</h2>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td width = "30%">
+                    <h2>1번 문제</h2>
+                    <h3>인터넷이나 스마트폰 과사용의 종류에는 게임 과사용, <br>(____ 과사용), 음란물 과사용, 검색 과사용 등이 있다.</h3>
+                    <input type="radio" name = 'number1' value='채팅'>채팅
+                    <input type="radio" name = 'number1' value='학습'>학습
+                    <input type="radio" name = 'number1' value='사진 촬영'>사진 촬영
+                    <p><input type="button" value="정답확인" onclick="quiz1()"><div id="num1"></div></p>
+            
+                    <h2>2번 문제</h2>
+                    <h3>사이버 공간의 특성 중 <u>'자신의 신분을 감추거나 <br>드러내지 않음'</u>을 의미하는 특성은?</h3>
+                    <input type="radio" name = 'number2' value='신속성'>신속성
+                    <input type="radio" name = 'number2' value='광역성'>광역성
+                    <input type="radio" name = 'number2' value='익명성'>익명성
+                    <input type="radio" name = 'number2' value='자율성'>자율성
+                    <p><input type="button" value="정답확인" onclick="quiz2()"><div id="num2"></div></p>
+            
+                    <h2>3번 문제</h2>
+                    <h3>인터넷 과사용을 극복하기 위한 치료방법의 하나인 <br>(_____ 기법)이 있다.</h3>
+                    <h4>(영어로 입력하세요!)</h4>
+                    <p>정답 : <input id="quiz3_a" type="text" onkeypress="enterkey('quiz3')"><input type="button" value="정답확인" onclick="quiz3()"><div id="num3"></div></p>
+                
+                    <h2>4번 문제</h2>
+                    <h3>강요에 의해 스마트폰의 '테더링'또는 '핫스팟' 기능으로 무선 인터넷을 제공하는 역할을 담당하게 만드는 사이버 폭력의 사례는?</h3>
+                    <input type="radio" name = 'number4' value='빵 셔틀'>빵 셔틀
+                    <input type="radio" name = 'number4' value='와이파이 셔틀'>와이파이 셔틀
+                    <input type="radio" name = 'number4' value='하트 셔틀'>하트 셔틀
+                    <p><input type="button" value="정답확인" onclick="quiz4()"><div id="num4"></div></p>     
+                </td>
+                <td width = "70%">
+                    <table>
+                        <tr>
+                            <td><img id="img1" src=""></td>
+                            <td><img id="img2" src=""></td>
+                        </tr>
+                        <tr>
+                            <td><img id="img3" src=""></td>
+                            <td><img id="img4" src=""></td>
+                        </tr>
+                    </table>   
+                </td>
+            </tr>
+        </table>
+
+    </body>
+    <script>
+        function quiz1(){
+            var ans = document.getElementsByName('number1');
+            var ans_value;
+            for(var i = 0; i<ans.length; i++){
+                if(ans[i].checked){
+                    ans_value = ans[i].value;
+                }
+            }
+
+            // ans = document.getElementById('quiz1_a').value
+            if(ans_value == '채팅')
+            {
+                document.getElementById('num1').innerHTML="정답입니다!";
+                document.getElementById('num1').style.color = 'blue';
+                document.getElementById('img1').src = "whoami/1.png";
+                check_all();
+            }
+            else
+            {
+                document.getElementById('num1').style.color = 'red';
+                document.getElementById('num1').innerHTML="틀렸습니다. ㅠㅠ";
+            }
+        }
+        function quiz2(){
+            var ans = document.getElementsByName('number2');
+            var ans_value;
+            for(var i = 0; i<ans.length; i++){
+                if(ans[i].checked){
+                    ans_value = ans[i].value;
+                }
+            }
+            //ans = document.getElementById('quiz2_a').value
+            if(ans_value == '익명성')
+            {
+                document.getElementById('num2').innerHTML="정답입니다!";
+                document.getElementById('num2').style.color = 'blue';
+                document.getElementById('img4').src = "whoami/2.png";
+                check_all();
+            }
+            else
+            {
+                document.getElementById('num2').style.color = 'red';
+                document.getElementById('num2').innerHTML="틀렸습니다. ㅠㅠ";
+            }
+        }
+        function quiz3(){
+            ans = document.getElementById('quiz3_a').value
+            if(ans == '드림' || ans == 'dream' || ans == 'DREAM' || ans == 'Dream')
+            {
+                document.getElementById('num3').innerHTML="정답입니다!";
+                document.getElementById('num3').style.color = 'blue';
+                document.getElementById('img3').src = "whoami/3.png";
+                check_all();
+            }
+            else
+            {
+                document.getElementById('num3').style.color = 'red';
+                document.getElementById('num3').innerHTML="틀렸습니다. ㅠㅠ";
+            }
+        }
+        function quiz4(){
+            var ans = document.getElementsByName('number4');
+            var ans_value;
+            for(var i = 0; i<ans.length; i++){
+                if(ans[i].checked){
+                    ans_value = ans[i].value;
+                }
+            }
+            //ans = document.getElementById('quiz4_a').value
+            if(ans_value == '와이파이 셔틀')
+            {
+                document.getElementById('num4').innerHTML="정답입니다!";
+                document.getElementById('num4').style.color = 'blue';
+                document.getElementById('img2').src = "whoami/4.png";
+                check_all();
+            }
+            else
+            {
+                document.getElementById('num4').style.color = 'red';
+                document.getElementById('num4').innerHTML="틀렸습니다. ㅠㅠ";
+            }
+        }       
+        // text 창에서 enter키 입력시 정답입력판정
+        function enterkey(q){
+            if (window.event.keyCode == 13) {
+                if(q == 'quiz1'){
+                    quiz1();
+                }else if(q == 'quiz2'){
+                    quiz2();
+                }else if(q == 'quiz3'){
+                    quiz3();
+                }else{
+                    quiz4();
+                }
+            }
+        }
+
+        // alert 창에서 누구인지 정답 작성하면 도덕.윤리와 관련된 명언 표시(랜덤)
+        function random_quotes(){
+            setTimeout(function(){
+                var inputwhoami = confirm('\n사진 속 인물은 바른 인성과 실력있는 진행으로 오랫동안 사랑받고 있는 \n유재석님 이었습니다! \n\n 모두 정답을 맞추셨나요!?');
+            }, 500);
+            const quotes = ['\n\n사는 것이 중요한 문제가 아니고, 바르게 사는 것이 중요한 문제이다.\n-소크라테스\n\n', '\n\n세상에서 가장 강한 사람은 자기 자신을 이기는 사람이다.\n-노자\n\n', '\n\n마음이 선한 사람은 온 세상이 맑고 깨끗하게 보인다.\n-석가모니\n\n', '\n\n착한 사람의 행동을 보고는 그와 같기를 생각하며, 착하지 못한 사람의 행동을 보고는 안으로 스스로 반성해야 한다.\n-공자\n\n', '\n\n두 가지 평화로운 폭력이 있다. 즉, 법률과 예의범절이다.\n-괴테\n\n', '\n\n폭력이 짐승의 법칙인 것 같이 비폭력은 인간의 법칙이다.\n-간디\n\n'];
+            const selected = quotes[Math.floor(Math.random() * quotes.length)];
+            setTimeout(function(){
+                alert(selected);
+            }, 500);
+        }
+
+        function check_all(){
+            p1 = document.getElementById('num1').innerHTML;
+            p2 = document.getElementById('num2').innerHTML;
+            p3 = document.getElementById('num3').innerHTML;
+            p4 = document.getElementById('num4').innerHTML;
+
+            if(p1 == '정답입니다!' && p2 == '정답입니다!' && p3 == '정답입니다!' && p4 == '정답입니다!'){
+                random_quotes();
+            }
+
+        }
+
+    </script>
+</html>
